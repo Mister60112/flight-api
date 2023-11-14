@@ -19,7 +19,7 @@ import jakarta.persistence.Entity;
  *         entity1.field = "field-1";
  *         entity1.persist();
  *         List<MyEntity> entities = MyEntity.listAll();
- *
+ ****
  *     }
  * }
  */
