@@ -20,12 +20,12 @@ public class Reservation extends PanacheEntityBase {
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "reservations_sequence")
     private Long id;
 
-    @NotNull(message = "Flight must be provided")
+    @NotNull(message = "le vol ne doit pas être vide")
     @ManyToOne(cascade = {CascadeType.MERGE, CascadeType.PERSIST})
     @JoinColumn(name = "flightId", referencedColumnName = "id", nullable = false)
     private Vol vol;
 
-    @NotNull(message = "Passenger must be provided")
+    @NotNull(message = "le passager ne doit pas être vide")
     @ManyToOne(cascade = {CascadeType.MERGE, CascadeType.PERSIST})
     @JoinColumn(name = "passengerId", referencedColumnName = "id", nullable = false)
     private Passager passager;

@@ -21,24 +21,24 @@ public class Avion extends PanacheEntityBase {
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "planes_sequence")
     private Long id;
 
-    @NotBlank(message = "Plane Operator must not be empty")
-    @Pattern(regexp = regex.ALPHA_REGEXP, message = "Plane Operator is invalid")
+    @NotBlank(message = "l'opératieur avion ne doit pas être vide")
+    @Pattern(regexp = regex.ALPHA_REGEXP, message = "l'opératieur avion n'est pas valide")
     @Column(nullable = false)
     private String operator;
 
-    @NotBlank(message = "Plane Model must not be empty")
-    @Pattern(regexp = regex.ALPHA_REGEXP, message = "Plane Operator is invalid")
+    @NotBlank(message = "le modèle avion ne doit pas être vide")
+    @Pattern(regexp = regex.ALPHA_REGEXP, message = "le modèle avion n'est pas valide")
     @Column(nullable = false)
     private String model;
 
-    @NotBlank(message = "Plane Registration must not be empty")
-    @Size(min = 6, max = 6, message = "Plane Registration must be 6 characters long")
-    @Pattern(regexp = regex.UPPERCASE_ALPHA_REGEXP, message = "Plane Registration is invalid")
+    @NotBlank(message = "le numéro d'immatriculation avion ne doit pas être vide")
+    @Size(min = 6, max = 6, message = "le numéro d'immatriculation avion doit être de 6 caractères")
+    @Pattern(regexp = regex.UPPERCASE_ALPHA_REGEXP, message = "le numéro d'immatriculation avion n'est pas valide")
     @Column(unique = true, nullable = false)
     private String registration;
 
-    @NotNull(message = "Plane Capacity must be provided")
-    @Min(value = 2, message = "Plane Capacity must be at least 2...")
+    @NotNull(message = "le nombre de sièges avion ne doit pas être vide")
+    @Min(value = 2, message = "le nombre de sièges avion doit être supérieur à 2")
     @Column(nullable = false)
     private Long capacity;
 

@@ -28,19 +28,19 @@ public class Passager extends PanacheEntityBase {
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "passengers_sequence")
     private Long id;
 
-    @NotBlank(message = "Passenger Surname must not be empty")
-    @Pattern(regexp = regex.ALPHA_REGEXP, message = "Passenger Surname is invalid")
+    @NotBlank(message = "le nom du passager ne doit pas être vide")
+    @Pattern(regexp = regex.ALPHA_REGEXP, message = "le nom du passager n'est pas valide")
     @Column(nullable = false)
     private String surname;
 
-    @NotBlank(message = "Passenger Firstname must not be empty")
-    @Pattern(regexp = regex.ALPHA_REGEXP, message = "Passenger Firstname is invalid")
+    @NotBlank(message = "le prénom du passager ne doit pas être vide")
+    @Pattern(regexp = regex.ALPHA_REGEXP, message = "le prénom du passager n'est pas valide")
     @Column(nullable = false)
     private String firstname;
 
-    @NotBlank(message = "Passenger Email Address must not be empty")
-    @Pattern(regexp = regex.EMAIL_REGEXP, message = "Passenger Email Address is not a valid email")
-    @Size(max = 150, message = "Passenger Email must be least than 150 characters long")
+    @NotBlank(message = "le numéro de téléphone du passager ne doit pas être vide")
+    @Pattern(regexp = regex.EMAIL_REGEXP, message = "le numéro de téléphone du passager n'est pas valide")
+    @Size(max = 150, message = "le numéro de téléphone du passager ne doit pas dépasser 150 caractères")
     @Column(unique = true, nullable = false)
     private String emailAddress;
 

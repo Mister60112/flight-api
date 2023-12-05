@@ -30,37 +30,37 @@ public class Vol extends PanacheEntityBase {
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "flights_sequence")
     private Long id;
 
-    @NotBlank(message = "Flight Number must not be empty")
-    @Size(min = 6, max = 6, message = "Flight Number must be 6 characters long")
-    @Pattern(regexp = regex.UPPERCASE_ALPHA_REGEXP, message = "Flight Number is invalid")
+    @NotBlank(message = "le numéro de vol ne doit pas être vide")
+    @Size(min = 6, max = 6, message = "le numéro de vol doit être de 6 caractères")
+    @Pattern(regexp = regex.UPPERCASE_ALPHA_REGEXP, message = "le numéro de vol n'est pas valide")
     @Column(unique = true, nullable = false)
     private String number;
 
-    @NotBlank(message = "Flight Origin must not be empty")
+    @NotBlank(message = "l'origine du vol ne doit pas être vide")
     @Column(nullable = false)
     private String origin;
 
-    @NotBlank(message = "Flight Destination must not be empty")
+    @NotBlank(message = "la destination du vol ne doit pas être vide")
     @Column(nullable = false)
     private String destination;
 
-    @NotNull(message = "Flight Departure Date must be provided")
+    @NotNull(message = "l' heure départ du vol ne doit pas être vide")
     @Column(nullable = false)
     private LocalDate departureDate;
 
-    @NotNull(message = "Flight Departure Time must be provided")
+    @NotNull(message = "la date départ du vol ne doit pas être vide")
     @Column(nullable = false)
     private LocalTime departureTime;
 
-    @NotNull(message = "Flight Arrival Date must be provided")
+    @NotNull(message = "l'heure d'arrivée du vol ne doit pas être vide")
     @Column(nullable = false)
     private LocalDate arrivalDate;
 
-    @NotNull(message = "Flight Arrival Time must be provided")
+    @NotNull(message = "la date d'arrivée du vol ne doit pas être vide")
     @Column(nullable = false)
     private LocalTime arrivalTime;
 
-    @NotNull(message = "Flight Plane must be provided")
+    @NotNull(message = "le vol ne doit pas être vide")
     @ManyToOne(cascade = {CascadeType.MERGE, CascadeType.PERSIST})
     @JoinColumn(name = "planeId", referencedColumnName = "id", nullable = false)
     private Avion avion;
